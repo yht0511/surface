@@ -1,0 +1,11 @@
+{
+    "title":"Surface远程终端",
+    "name":"Surface",
+    "project_manager":{
+        "version":1,
+        "sync":true,
+        "auto_analyze_progress":true
+    }
+}
+
+

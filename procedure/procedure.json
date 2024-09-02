@@ -1,0 +1,56 @@
+[
+    {
+        "description": "连接到校园网",
+        "path":"procedure.wifi",
+        "steps": [
+            {
+                "description": "检查连接状态",
+                "path":"procedure.wifi.check"
+            },
+            {
+                "description": "连接WIFI",
+                "path":"procedure.wifi.connect"
+            },
+            {
+                "description": "检查连接状态",
+                "path":"procedure.wifi.check"
+            },
+            {
+                "description": "登录校园网",
+                "path":"procedure.wifi.login"
+            }
+        ]
+    },
+    {
+        "description": "启动工作站",
+        "path":"procedure.workstation",
+        "steps": [
+            {
+                "description": "检查工作站电源状态",
+                "path":"procedure.workstation.check"
+            },
+            {
+                "description": "启动工作站",
+                "path":"procedure.workstation.boot"
+            },
+            {
+                "description": "检查工作站登录状态",
+                "path":"procedure.workstation.check"
+            }
+        ]
+    },
+    {
+        "description": "建立远程桌面连接",
+        "path":"procedure.rdp",
+        "steps": [
+            {
+                "description": "获取工作站IP",
+                "path":"procedure.rdp.getip"
+            },
+            {
+                "description": "连接到RDP",
+                "path":"procedure.rdp.connect"
+            }
+        ]
+    }
+]
