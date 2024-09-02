@@ -1,6 +1,8 @@
 {
     "title":"Surface远程终端",
     "name":"Surface",
+    "progress": 0,
+    "status": "开发",
     "project_manager":{
         "version":1,
         "sync":true,
