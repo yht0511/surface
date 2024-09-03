@@ -10,6 +10,6 @@
 
 + 问题
 
-  + wallpaper engine rdp停止    未解决
+  + wallpaper engine rdp停止    已解决
 
-  + 延迟高    未解决
+  + 延迟高    已解决
