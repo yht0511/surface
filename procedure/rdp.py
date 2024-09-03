@@ -14,7 +14,11 @@ def connect():
         ip=getip()
     else:
         ip=ips[0]
-    os.system(f"mstsc /v:{ip}:{settings.rdp_port} /f")
+    # os.system(f"mstsc /v:{ip}:{settings.rdp_port} /f")
+    f=open(settings.rdp_temp_file,"w")
+    f.write(settings.rdp_file.replace("$$address$$",f"{ip}:{settings.rdp_port}"))
+    f.close()
+    os.system("mstsc ./temp.rdp")
     return True
     
 ips=[]

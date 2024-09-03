@@ -50,5 +50,6 @@ def check():
 def boot():
     if not check():
         set_power(list_devices()[0]["deviceName"],1)
+        time.sleep(20)
         return check()
     return True

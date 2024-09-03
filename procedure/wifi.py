@@ -1,5 +1,5 @@
 import os
-import settings
+# import settings
 import requests
 
 def check():
@@ -13,7 +13,8 @@ def check_login():
     try:
         requests.get("https://www.baidu.com",timeout=5)
         return True
-    except:
+    except Exception as e:
+        print(e)
         return False
     
 def connect():
