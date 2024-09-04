@@ -6,30 +6,8 @@ import json
 import socket
 import time
 import struct
+import ikuai.core
 
-def wake_up(mac,ip):
-    MAC = mac
-    BROADCAST = ip
-    mac_address = MAC.replace("-", '')
-    data = ''.join(['FFFFFFFFFFFF', mac_address * 20])  # 构造原始数据格式
-    send_data = b''
- 
-    # 把原始数据转换为16进制字节数组，
-    for i in range(0, len(data), 2):
-        send_data = b''.join([send_data, struct.pack('B', int(data[i: i + 2], 16))])
- 
-    # 通过socket广播出去，为避免失败，间隔广播三次
-    try:
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-        sock.sendto(send_data, (BROADCAST, 7))
-        time.sleep(1)
-        sock.sendto(send_data, (BROADCAST, 7))
-        time.sleep(1)
-        sock.sendto(send_data, (BROADCAST, 7))
-    except Exception as e:
-        print(e)
-    return True
 
 # def list_devices():
 #     res=requests.post("https://songguoyun.topwd.top/Esp_Api_advance.php",json={
@@ -93,9 +71,15 @@ def check():
 def poweron():
     res=check()
     if not res:
-        wake_up(mac=settings.wake_mac,ip=ips["wan"][0])
-        time.sleep(20)
-        res=check()
+        ikuai_client = ikuai.core.IKuaiClient(
+            url=settings.ikuai_url,
+            username=settings.ikuai_username,
+            password=settings.ikuai_password
+        )
+        ikuai_client.wake_on_lan(settings.wake_mac)
+        while not res:
+            res=check()
+            time.sleep(1)
     return res
 
 ips=[]
