@@ -26,16 +26,8 @@
         "path":"procedure.workstation",
         "steps": [
             {
-                "description": "检查工作站电源状态",
-                "path":"procedure.workstation.check"
-            },
-            {
                 "description": "启动工作站",
-                "path":"procedure.workstation.boot"
-            },
-            {
-                "description": "检查工作站登录状态",
-                "path":"procedure.workstation.check"
+                "path":"procedure.workstation.poweron"
             }
         ]
     },

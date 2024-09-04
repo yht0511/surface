@@ -1,5 +1,5 @@
 import os
-# import settings
+import settings
 import requests
 
 def check():
