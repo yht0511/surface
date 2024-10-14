@@ -11,7 +11,7 @@ def check():
 
 def check_login():
     try:
-        requests.get("https://www.baidu.com",timeout=5)
+        requests.get("https://www.bing.com",timeout=5)
         return True
     except Exception as e:
         print(e)
