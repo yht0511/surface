@@ -1,4 +1,5 @@
 import os
+import time
 import settings
 import requests
 
@@ -14,7 +15,6 @@ def check_login():
         requests.get("https://www.bing.com",timeout=5)
         return True
     except Exception as e:
-        print(e)
         return False
     
 def connect():
@@ -25,6 +25,6 @@ def connect():
 
 def login():
     if not check_login():
-        os.system(settings.SRUN_CMD)
+        os.popen(settings.SRUN_CMD).read()
         return check_login()
     return True
